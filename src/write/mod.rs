@@ -25,6 +25,9 @@ mod macho;
 #[cfg(feature = "pe")]
 pub mod pe;
 
+#[cfg(feature = "archive")]
+pub mod archive;
+
 mod string;
 pub use string::StringId;
 

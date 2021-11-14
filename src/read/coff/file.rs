@@ -49,6 +49,19 @@ impl<'data, R: ReadRef<'data>> CoffFile<'data, R> {
     }
 }
 
+impl<'data, R: ReadRef<'data>> CoffFile<'data, R> {
+    /// Returns a length of a Coff file.
+    #[inline]
+    pub fn data(&self) -> R {
+        self.data
+    }
+    /// Returns the timestamp of a Coff file.
+    #[inline]
+    pub fn timestamp(&self) -> crate::endian::U32<LE> {
+        self.header.time_date_stamp
+    }
+}
+
 impl<'data, R: ReadRef<'data>> read::private::Sealed for CoffFile<'data, R> {}
 
 impl<'data, 'file, R> Object<'data, 'file> for CoffFile<'data, R>

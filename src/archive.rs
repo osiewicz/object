@@ -17,7 +17,7 @@ pub const THIN_MAGIC: [u8; 8] = *b"!<thin>\n";
 pub const TERMINATOR: [u8; 2] = *b"`\n";
 
 /// The header at the start of an archive member.
-#[derive(Debug, Clone, Copy)]
+#[derive(Debug, Clone, Copy, Default)]
 #[repr(C)]
 pub struct Header {
     /// The file name.
